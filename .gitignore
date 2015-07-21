@@ -1,0 +1,6 @@
+.project
+bin
+dist
+docs
+.DS_Store
+.txt
