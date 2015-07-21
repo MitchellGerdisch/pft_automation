@@ -11,7 +11,7 @@ then
 	exit 1
 fi
  
-RSC_TOOL="./rsc"
+RSC_TOOL="rsc"
 ACCOUNT_NUM="${1}"
 RIGHTSCALE_HOST="${2}"
 REFRESH_TOKEN="${3}"

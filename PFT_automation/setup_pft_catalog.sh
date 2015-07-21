@@ -21,7 +21,7 @@ REFRESH_TOKEN="${3}"
 CAT_LIST_FILE="${4}"
 
 SCRIPT_DIR="."
-RSC_TOOL="./rsc"
+RSC_TOOL="rsc"
 
 echo "Currently this account has the following items in the Self-Service Catalog:"
 ${SCRIPT_DIR}/list_catalog_app_names.sh ${ACCOUNT_NUM} ${RIGHTSCALE_HOST} ${REFRESH_TOKEN}

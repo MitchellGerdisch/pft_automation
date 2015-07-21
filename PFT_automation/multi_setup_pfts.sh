@@ -20,16 +20,13 @@ ACCOUNT_INFO="${1}"
 CAT_LIST_FILE="${2}"
 
 SCRIPT_DIR="."
-RSC_TOOL="./rsc"
+RSC_TOOL="rsc"
 
 while read pft_name account_num rs_host refresh_token
 do
 	
 	echo "Processing Account: ${pft_name}/${account_num}"
 	# Create Business Hours Schedule and get it's ID. If already there, no biggy.
-
-echo ${SCRIPT_DIR}/create_business_hours_schedule.sh ${account_num} ${rs_host} ${refresh_token}
-exit
 
 	schedule_id=`${SCRIPT_DIR}/create_business_hours_schedule.sh ${account_num} ${rs_host} ${refresh_token}`
 	echo "	Created schedule ID: ${schedule_id}"
