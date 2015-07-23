@@ -2,7 +2,7 @@
 
 function usage ()
 {
-	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM RIGHTSCALE_HOST REFRESH_TOKEN APP_ID"
+	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM RIGHTSCALE_HOST REFRESH_TOKEN" 
 }
 
 if [ $# -ne 3 ]
