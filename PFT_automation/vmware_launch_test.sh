@@ -23,12 +23,6 @@ NAME_MATCH="Corporate Standard Linux"
 
 app_id=`${RSC_TOOL} --xm ":has(.name:contains(\"${NAME_MATCH}\")) > .id" -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss index catalog/catalogs/${ACCOUNT_NUM}/applications | sed 's/"//g'`
 
-echo "Launching catalog application id ${app_id} in account ${ACCOUNT_NUM} in AWS environment."
-
-${RSC_TOOL} --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss launch /api/catalog/catalogs/${ACCOUNT_NUM}/applications/${app_id} "name=AwsTest_${ACCOUNT_NUM}" "options[][name]=param_location" "options[][type]=string" "options[][value]=AWS"
-
-sleep 10
-
 echo "Launching catalog application id ${app_id} in account ${ACCOUNT_NUM} in VMware environment."
 
 ${RSC_TOOL} --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss launch /api/catalog/catalogs/${ACCOUNT_NUM}/applications/${app_id} "name=VMwareTest_${ACCOUNT_NUM}" "options[][name]=param_location" "options[][type]=string" "options[][value]=VMware"

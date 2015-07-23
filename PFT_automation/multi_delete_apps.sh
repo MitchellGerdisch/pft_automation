@@ -9,7 +9,7 @@ function usage ()
 	echo "Where ACCOUNT_INFO is a file containing space-separated list of: PFT Account Name, RightScale Account Number, RightScale Host, Refresh Token"
 }
 
-if [ $# -ne 2 ]
+if [ $# -ne 1 ]
 then
 	usage
 	exit 1

@@ -15,7 +15,6 @@ RSC_TOOL="rsc"
 ACCOUNT_NUM="${1}"
 RIGHTSCALE_HOST="${2}"
 REFRESH_TOKEN="${3}"
-APP_ID="${4}"
 
 echo "**** WARNING WARNING WARNING ****"
 echo "YOU WILL DELETE ALL TERMINATED CLOUD APPLICATIONS IN ACCOUNT ID: ${ACCOUNT_NUM}"
@@ -30,9 +29,8 @@ app_names_to_delete=`cat ${tmpfile} | ${RSC_TOOL} --xm ".status:val(\"terminated
 echo ${app_names_to_delete}
 echo ""
 echo "****************"
-echo "Enter Control-C to EXIT or Enter to continue."
-read response
-
+echo "Enter Control-C within 10 seconds to EXIT" 
+sleep 10
 for app_id in ${app_ids_to_delete}
 do
 	echo "	Deleting app ID ${app_id}"

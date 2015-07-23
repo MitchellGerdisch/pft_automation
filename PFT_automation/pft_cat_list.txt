@@ -1,0 +1,11 @@
+/Users/mitchellgerdisch/git/customer_cat_pocs/CAT AEM.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/CAT IIS-SQL Dev Stack.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/CAT MySQL.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/CAT PHP Production Stack.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/CAT Sharepoint.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/DockerWordpress.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/HadoopBigData.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/HelloWorldHtml5.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/LampStack.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/LinuxServer.rb
+/Users/mitchellgerdisch/git/customer_cat_pocs/WindowsServer.rb

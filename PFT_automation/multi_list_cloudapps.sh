@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# This script launches the linux server CAT in the VMware environment across the accounts in the ACCOUNT_INFO file.
+# This script loops through a file of account creds and lists the apps in that account.
 
 
 function usage ()
 {
-	echo "Usage: $0 ACCOUNT_INFO"
+	echo "Usage: $0 ACCOUNT_INFO" 
 	echo "Where ACCOUNT_INFO is a file containing space-separated list of: PFT Account Name, RightScale Account Number, RightScale Host, Refresh Token"
 }
 
@@ -22,7 +22,12 @@ RSC_TOOL="rsc"
 
 while read pft_name account_num rs_host refresh_token
 do
-	echo "Testing environment for account: ${pft_name}/${account_num}"
-	${SCRIPT_DIR}/launch_test.sh ${account_num} ${rs_host} ${refresh_token} 
-	sleep 5
+
+	echo "CloudApp Info for Account: ${pft_name}/${account_num}"
+	${SCRIPT_DIR}/list_cloudapps.sh ${account_num} ${rs_host} ${refresh_token} ${app_id}
+	echo ""
+	echo "#########"
+	echo ""
+	
 done < ${ACCOUNT_INFO}
+

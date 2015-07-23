@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script loops through a file of account creds and terminates running and failed apps in those accounts.
+# This script loops through a file of account creds and terminates ONLY failed apps in those accounts.
 
 
 function usage ()
@@ -23,8 +23,8 @@ RSC_TOOL="rsc"
 while read pft_name account_num rs_host refresh_token
 do
 
-	echo "Terminating apps in account: ${pft_name}/${account_num}"
-	${SCRIPT_DIR}/terminate_running_and_failed_apps.sh ${account_num} ${rs_host} ${refresh_token} ${app_id}
+	echo "Terminating FAILED apps in account: ${pft_name}/${account_num}"
+	${SCRIPT_DIR}/terminate_failed_apps.sh ${account_num} ${rs_host} ${refresh_token} ${app_id}
 	
 done < ${ACCOUNT_INFO}
 

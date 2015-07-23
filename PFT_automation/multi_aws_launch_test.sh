@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# This script loops through a file of account creds and terminates running and failed apps in those accounts.
+# This script launches the linux server CAT in the AWS environment across the accounts in the ACCOUNT_INFO file.
 
 
 function usage ()
 {
-	echo "Usage: $0 ACCOUNT_INFO" 
+	echo "Usage: $0 ACCOUNT_INFO"
 	echo "Where ACCOUNT_INFO is a file containing space-separated list of: PFT Account Name, RightScale Account Number, RightScale Host, Refresh Token"
 }
 
@@ -22,9 +22,7 @@ RSC_TOOL="rsc"
 
 while read pft_name account_num rs_host refresh_token
 do
-
-	echo "Terminating apps in account: ${pft_name}/${account_num}"
-	${SCRIPT_DIR}/terminate_running_and_failed_apps.sh ${account_num} ${rs_host} ${refresh_token} ${app_id}
-	
+	echo "Testing environment for account: ${pft_name}/${account_num}"
+	${SCRIPT_DIR}/aws_launch_test.sh ${account_num} ${rs_host} ${refresh_token} 
+	sleep 5
 done < ${ACCOUNT_INFO}
-
