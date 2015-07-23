@@ -23,10 +23,20 @@ tmpfile=/tmp/$RANDOM
 ${RSC_TOOL} --dump=debug --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} &> $tmpfile
 ret_code=$?
 
-if [ $ret_code -eq 1 ]
+if [ $ret_code -eq 2 ]
 then
-	echo "Something went wrong. Check your parameters."
-	exit 1
+        # Check for conflict and deal with it.
+        grep "409 Conflict" $tmpfile &> /dev/null
+        if [ $? -eq 0 ]
+        then
+                # There was a conflict so let's republish with the href of the catalog item to overwrite. 
+        	overridden_application_href=`grep "^Location:" $tmpfile | sed 's/  *//g' | cut -d":" -f2` 
+		${RSC_TOOL} --dump=debug --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} overridden_application_href="${overridden_application_href}" &> $tmpfile
+        fi
+elif [ $ret_code -ne 0 ]
+then
+        echo "Something went wrong. Check your parameters."
+        exit 1
 fi
 
 rm $tmpfile

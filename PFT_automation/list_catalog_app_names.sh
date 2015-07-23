@@ -16,6 +16,6 @@ ACCOUNT_NUM="${1}"
 RIGHTSCALE_HOST="${2}"
 REFRESH_TOKEN="${3}"
 
-${RSC_TOOL} --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} --xm '.template_info .name' ss index catalog/catalogs/81573/applications | sort 
+${RSC_TOOL} --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} --xm '.template_info .name' ss index catalog/catalogs/${ACCOUNT_NUM}/applications | sort 
 
 
