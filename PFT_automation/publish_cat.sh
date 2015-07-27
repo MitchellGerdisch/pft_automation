@@ -2,25 +2,23 @@
 
 function usage ()
 {
-	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM RIGHTSCALE_HOST REFRESH_TOKEN CAT_ID SCHEDULE_ID"
+	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM CAT_ID SCHEDULE_ID"
 }
 
-if [ $# -ne 5 ]
+if [ $# -ne 3 ]
 then
 	usage
 	exit 1
 fi
  
-RSC_TOOL="rsc"
 ACCOUNT_NUM="${1}"
-RIGHTSCALE_HOST="${2}"
-REFRESH_TOKEN="${3}"
-CAT_ID="${4}"
-SCHEDULE_ID="${5}"
+CAT_ID="${2}"
+SCHEDULE_ID="${3}"
+RSC_TOOL="rsc -a ${ACCOUNT_NUM}"
 
 tmpfile=/tmp/$RANDOM
 
-${RSC_TOOL} --dump=debug --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} &> $tmpfile
+${RSC_TOOL} --dump=debug --pp ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} &> $tmpfile
 ret_code=$?
 
 if [ $ret_code -eq 2 ]
@@ -31,7 +29,7 @@ then
         then
                 # There was a conflict so let's republish with the href of the catalog item to overwrite. 
         	overridden_application_href=`grep "^Location:" $tmpfile | sed 's/  *//g' | cut -d":" -f2` 
-		${RSC_TOOL} --dump=debug --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} overridden_application_href="${overridden_application_href}" &> $tmpfile
+		${RSC_TOOL} --dump=debug --pp ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} overridden_application_href="${overridden_application_href}" &> $tmpfile
         fi
 elif [ $ret_code -ne 0 ]
 then

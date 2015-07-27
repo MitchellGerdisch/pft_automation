@@ -2,24 +2,22 @@
 
 function usage ()
 {
-	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM RIGHTSCALE_HOST REFRESH_TOKEN CAT_FILE_NAME"
+	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM CAT_FILE_NAME"
 }
 
-if [ $# -ne 4 ]
+if [ $# -ne 2 ]
 then
 	usage
 	exit 1
 fi
  
-RSC_TOOL="rsc"
 ACCOUNT_NUM="${1}"
-RIGHTSCALE_HOST="${2}"
-REFRESH_TOKEN="${3}"
-FILE_NAME="${4}"
+FILE_NAME="${2}"
+RSC_TOOL="rsc -a ${ACCOUNT_NUM}"
 
 tmpfile=/tmp/$RANDOM
 
-${RSC_TOOL} --dump=debug --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss create collections/${ACCOUNT_NUM}/templates source="${FILE_NAME}" &> $tmpfile
+${RSC_TOOL} --dump=debug --pp ss create collections/${ACCOUNT_NUM}/templates source="${FILE_NAME}" &> $tmpfile
 ret_code=$?
 if [ $ret_code -eq 0 ]
 then
@@ -35,7 +33,7 @@ then
 		tr '{' '\n' < $tmpfile > ${tmpfile}_tweaked
 		# Now find the application href
 		application_id=`grep "application_info" ${tmpfile}_tweaked | sed 's/\}/:/g' | cut -d":" -f2 | sed 's/"//g' | sort -u`
-		${RSC_TOOL} --pp -a ${ACCOUNT_NUM} -h ${RIGHTSCALE_HOST} -r ${REFRESH_TOKEN} ss update /api/collections/${ACCOUNT_NUM}/templates/${application_id} source="${FILE_NAME}" &> $tmpfile
+		${RSC_TOOL} --pp ss update /api/collections/${ACCOUNT_NUM}/templates/${application_id} source="${FILE_NAME}" &> $tmpfile
 	fi
 else
 	echo "Something went wrong. Check your parameters."

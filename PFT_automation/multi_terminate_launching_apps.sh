@@ -6,7 +6,7 @@
 function usage ()
 {
 	echo "Usage: $0 ACCOUNT_INFO" 
-	echo "Where ACCOUNT_INFO is a file containing space-separated list of: PFT Account Name, RightScale Account Number, RightScale Host, Refresh Token"
+	echo "Where ACCOUNT_INFO is a file containing space-separated list of: PFT Account Name, RightScale Account Number"
 }
 
 if [ $# -ne 1 ]
@@ -18,13 +18,12 @@ fi
 ACCOUNT_INFO="${1}"
 
 SCRIPT_DIR="."
-RSC_TOOL="rsc"
 
-while read pft_name account_num rs_host refresh_token
+while read pft_name account_num 
 do
 
 	echo "Terminating LAUNCHING apps in account: ${pft_name}/${account_num}"
-	${SCRIPT_DIR}/terminate_launching_apps.sh ${account_num} ${rs_host} ${refresh_token} ${app_id}
+	${SCRIPT_DIR}/terminate_launching_apps.sh ${account_num} 
 	
 done < ${ACCOUNT_INFO}
 
