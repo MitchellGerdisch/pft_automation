@@ -28,11 +28,11 @@ while read cat_source_file_name
 do
 
 	# Upload the CAT and get it's ID
-	#echo "Uploading CAT: ${cat_source_file_name}"
+	echo "Uploading CAT: ${cat_source_file_name}"
 	application_id=`${SCRIPT_DIR}/upload_cat.sh ${ACCOUNT_NUM} "${cat_source_file_name}"`
 
 	# Publish the CAT
-	#echo "Publishing CAT"
+	echo "Publishing CAT"
 	${SCRIPT_DIR}/publish_cat.sh ${ACCOUNT_NUM} ${application_id} ${schedule_id}
 	
 done < ${CAT_LIST_FILE}
