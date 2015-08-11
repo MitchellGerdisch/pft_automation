@@ -18,8 +18,6 @@ RSC_TOOL="rsc -a ${ACCOUNT_NUM}"
 
 tmpfile=/tmp/$RANDOM
 
-echo ${RSC_TOOL} --dump=debug --pp ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} &> $tmpfile
-exit
 ${RSC_TOOL} --dump=debug --pp ss publish /designer/collections/${ACCOUNT_NUM}/templates id="${CAT_ID}" schedules[]=${SCHEDULE_ID} &> $tmpfile
 ret_code=$?
 
