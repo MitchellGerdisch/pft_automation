@@ -14,6 +14,7 @@ fi
 ACCOUNT_NUM="${1}"
 RSC_TOOL="rsc -a ${ACCOUNT_NUM}"
 
+
 ${RSC_TOOL} --dump=debug --pp ss create /designer/collections/${ACCOUNT_NUM}/schedules "name=Business Hours" "start_recurrence[hour]=8" "start_recurrence[minute]=0" "start_recurrence[rule]=FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" "stop_recurrence[hour]=18" "stop_recurrence[minute]=0" "stop_recurrence[rule]=FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR" &> /dev/null
 ret_code=$?
 if [ $ret_code -eq 1 ]
