@@ -7,7 +7,7 @@
 function usage ()
 {
 	echo "Usage: $0 RIGHTSCALE_ACCOUNT_NUM CLOUD_NAME APP_TITLE [param_name:param_type:param_value]"
-	echo "Where CLOUD_NAME is one of AWS, Azure, VMware, Google."
+	echo "Where CLOUD_NAME is one of AWS, Azure, VMware, Google, or NO_CLOUD to indicate there is no cloud related parameter."
 	echo "Where APP_TITLE is any string that will match uniquely the application name as it appears in the catalog"
 	echo "Where param_name:param_type:param_value are optional colon-separated sets of parameters for the cloud application enclosed in quotes."
 }
@@ -23,6 +23,7 @@ CLOUD_NAME="${2}"
 # Substring that matches the CAT we want to launch from the catalog.
 NAME_MATCH="${3}"
 PARAMS="${4}"
+CLOUD_PARAM=""
 ADDITIONAL_OPTIONS=""
 for param_set in ${PARAMS} 
 do
@@ -43,5 +44,11 @@ app_id=`${RSC_TOOL} --xm ":has(.name:contains(\"${NAME_MATCH}\")) > .id" ss inde
 
 echo "Launching catalog application id ${app_id} in account ${ACCOUNT_NUM} in ${CLOUD_NAME} environment."
 
-${RSC_TOOL} --pp ss launch /api/catalog/catalogs/${ACCOUNT_NUM}/applications/${app_id} "name=${CLOUD_NAME}_${NAME_MATCH}_Test_${timestamp}_${ACCOUNT_NUM}" "options[][name]=param_location" "options[][type]=string" "options[][value]=${CLOUD_NAME}" ${ADDITIONAL_OPTIONS}
+if [ ${CLOUD_NAME} != "NO_CLOUD" ]
+then
+	CLOUD_OPTION=""options[][name]=param_location" "options[][type]=string" "options[][value]=${CLOUD_NAME}"" 
+fi
+
+${RSC_TOOL} --pp ss launch /api/catalog/catalogs/${ACCOUNT_NUM}/applications/${app_id} "name=${NAME_MATCH}_${ACCOUNT_NUM}_TEST" ${CLOUD_OPTION} ${ADDITIONAL_OPTIONS}
+#"name=${CLOUD_NAME}_${NAME_MATCH}_Test_${timestamp}_${ACCOUNT_NUM}" "options[][name]=param_location" "options[][type]=string" "options[][value]=${CLOUD_NAME}" ${ADDITIONAL_OPTIONS}
 
