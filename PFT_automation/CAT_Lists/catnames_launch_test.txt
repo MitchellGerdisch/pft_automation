@@ -1,0 +1,5 @@
+Corporate Standard Linux
+Docker Container with  WordPress
+App Stack - Least Expensive Cloud
+LAMP Stack
+Hadoop Big Data

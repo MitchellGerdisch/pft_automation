@@ -1,0 +1,5 @@
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT AEM.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT IIS-SQL Dev Stack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT MySQL.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT PHP Production Stack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT Sharepoint.rb

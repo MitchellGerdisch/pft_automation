@@ -1,0 +1,11 @@
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerWordpress.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/HadoopBigData.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack-LeastExpensiveCloud.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LinuxServer.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/WindowsServer.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT AEM.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT IIS-SQL Dev Stack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT MySQL.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT PHP Production Stack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/CAT Sharepoint.rb

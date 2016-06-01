@@ -1,0 +1,6 @@
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerWordpress.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/HadoopBigData.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack-LeastExpensiveCloud.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LinuxServer.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/WindowsServer.rb
