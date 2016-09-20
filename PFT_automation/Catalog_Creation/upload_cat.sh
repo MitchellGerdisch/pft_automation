@@ -37,8 +37,14 @@ then
 	fi
 else
 	echo "Something went wrong. Check your parameters."
-	exit 1
+	exit 2
 fi
 
+if [ -z $application_id ]
+then
+	echo "Something went wrong uploading the application - look at the end of $tmpfile for details"
+	exit 3
+fi
 printf "$application_id"
 rm $tmpfile ${tmpfile}_tweaked &> /dev/null
+exit 0

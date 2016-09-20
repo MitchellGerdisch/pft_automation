@@ -1,0 +1,2 @@
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/HadoopBigData.cat.rb
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerWordpress.cat.rb
