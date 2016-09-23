@@ -13,7 +13,11 @@ pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_err.
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_serverarray.pkg.rb
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_account.pkg.rb
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_definitions_LAMP.pkg.rb
-cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerSwarm.cat.rb
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LinuxServer.cat.rb
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/WindowsServer.cat.rb
 cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerWordpress.cat.rb
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack-LeastExpensiveCloud.cat.rb
 cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/HadoopBigData.cat.rb
 cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack.cat.rb
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerSwarm.cat.rb
+cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/RancherCluster.cat.rb
