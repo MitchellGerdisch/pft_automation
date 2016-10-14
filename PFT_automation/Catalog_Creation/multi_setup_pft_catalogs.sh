@@ -27,22 +27,7 @@ do
 	echo "Processing Account: ${pft_name}/${account_num}"
 	# Create Business Hours Schedule and get it's ID. If already there, no biggy.
 
-	schedule_id=`${SCRIPT_DIR}/create_business_hours_schedule.sh ${account_num}`
-	echo "	Created schedule ID: ${schedule_id}"
+	${SCRIPT_DIR}/setup_pft_catalog.sh ${account_num} ${CAT_LIST_FILE}
 
-	while read cat_source_file_name
-	do
-
-		echo "	Processing CAT: ${cat_source_file_name}"
-		# Upload the CAT and get it's ID
-		#echo "Uploading CAT: ${cat_source_file_name}"
-		application_id=`${SCRIPT_DIR}/upload_cat.sh ${account_num} "${cat_source_file_name}"`
-		echo "	Created application ID: ${application_id}"
-	
-		# Publish the CAT
-		#echo "Publishing CAT"
-		${SCRIPT_DIR}/publish_cat.sh ${account_num} ${application_id} ${schedule_id}
-		
-	done < ${CAT_LIST_FILE}
 done < ${ACCOUNT_INFO}
 

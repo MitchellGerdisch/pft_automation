@@ -36,7 +36,7 @@ then
 		${RSC_TOOL} --pp ss update /api/collections/${ACCOUNT_NUM}/templates/${application_id} source="${FILE_NAME}" &> $tmpfile
 	fi
 else
-	echo "Something went wrong. Check your parameters."
+	echo "Something went wrong. Look at $tmpfile."
 	exit 2
 fi
 

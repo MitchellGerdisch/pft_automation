@@ -19,5 +19,3 @@ cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerWordpress.cat.r
 cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack-LeastExpensiveCloud.cat.rb
 cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/HadoopBigData.cat.rb
 cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/LampStack.cat.rb
-cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/DockerSwarm.cat.rb
-cat /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/RancherCluster.cat.rb

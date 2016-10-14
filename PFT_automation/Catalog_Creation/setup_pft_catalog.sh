@@ -45,6 +45,8 @@ do
 	   echo "Publishing CAT"
 	   ${SCRIPT_DIR}/publish_cat.sh ${ACCOUNT_NUM} ${application_id} ${schedule_id}
 	fi
+
+	sleep 2
 	
 done < ${CAT_LIST_FILE}
 
