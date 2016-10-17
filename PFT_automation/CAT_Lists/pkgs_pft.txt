@@ -7,6 +7,7 @@ pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_common_re
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_common_LAMP_resources.pkg.rb
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_common_outputs.pkg.rb   
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_clouds.pkg.rb
+pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_account.pkg.rb
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_creds.pkg.rb
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_err.pkg.rb
 pkg /Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/library/lib_util_servertemplates.pkg.rb
