@@ -21,9 +21,6 @@ tmpfile=/tmp/$RANDOM
 # Identify the package this file provides
 pkg_name=`grep "package" $FILE_NAME | cut -d " " -f2 | sed 's/\"//g'`
 
-# Find any dependents of this package file so you can later recompile/republish them.
-${RSC_TOOL} 
-
 ${RSC_TOOL} --dump=debug --pp ss create collections/${ACCOUNT_NUM}/templates source="${FILE_NAME}" &> $tmpfile
 ret_code=$?
 if [ $ret_code -eq 0 ]
