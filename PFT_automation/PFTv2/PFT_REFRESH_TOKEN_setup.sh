@@ -12,6 +12,13 @@ function usage ()
     echo "   NOTE: There is a service account user named "PFT_Service_Account" in PFT_700 that can be used as the source for this token."
 }
 
+echo "######## NO GOOD NO GOOD NO GOOD ##########"
+echo "Using one api refresh token across accounts does not work for the rightscripts."
+echo "YOU NEED to populate the PFT_RS_REFRESH_TOKEN with the unique API credential token for the given account."
+echo "###########################################"
+exit 2
+
+
 if [ $# -ne 3 ]
 then
     usage

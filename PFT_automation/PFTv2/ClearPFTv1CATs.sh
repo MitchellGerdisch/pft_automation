@@ -29,21 +29,21 @@ do
     cat_name=$(sed -n -e "s/^name[[:space:]]['\"]*\(.*\)['\"]/\1/p" $cat_filename)
     echo "Attempting to delete CAT with name ${cat_name}"
     
-    catalog_href=$(rsc --pp -r $OAUTH_REFRESH_TOKEN -a $ACCOUNT_ID -h $SHARD_HOSTNAME ss index /api/catalog/catalogs/$ACCOUNT_ID/applications | jq ".[] | select(.name==\"$cat_name\") | .href" | sed 's/"//g')
+    catalog_href=$(rsc --pp -a $account_num ss index /api/catalog/catalogs/$account_num/applications | jq ".[] | select(.name==\"$cat_name\") | .href" | sed 's/"//g')
     if [[ -z "$catalog_href" ]]
     then
-      echo "Could NOT find catalog CAT with name ${cat_name}"
+      echo "Could NOT find catalog item with name: \"${cat_name}\""
     else
-      echo "DELETING CAT, ${cat_name} with catalog href: ${catalog_href}"
+      echo "DELETING catalog item, \"${cat_name}\" with catalog href: ${catalog_href}"
       rsc -a ${account_num} ss delete ${catalog_href}
     fi
 
-    cat_href=$(rsc -a ${account_num} ss index collections/$ACCOUNT_ID/templates "filter[]=name==$cat_name" | jq -r '.[0].href')
+    cat_href=$(rsc -a ${account_num} ss index collections/$account_num/templates "filter[]=name==$cat_name" | jq -r '.[0].href')
     if [[ -z "$cat_href" ]]
     then
-      echo "Could NOT find designer CAT with name ${cat_name}"
+      echo "Could NOT find uploaded CAT with name \"${cat_name}\""
     else
-      echo "DELETING CAT, ${cat_name} with designer href: ${cat_href}"
+      echo "DELETING CAT, \"${cat_name}\" with designer href: ${cat_href}"
       rsc -a ${account_num} ss delete ${cat_href}
     fi
   done
