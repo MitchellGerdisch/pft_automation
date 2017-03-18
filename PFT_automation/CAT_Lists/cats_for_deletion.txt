@@ -1,0 +1,8 @@
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/DockerWordpress.cat.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/HadoopBigData.cat.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/LampStack.cat.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/CAT_AEM.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/CAT_IIS_SQL_Dev_Stack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/CAT_MySQL.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/CAT_PHP_Production_Stack.rb
+/Users/mitchellgerdisch/git/rs-premium_free_trial/CATs/deprecated/CAT_Sharepoint.rb
