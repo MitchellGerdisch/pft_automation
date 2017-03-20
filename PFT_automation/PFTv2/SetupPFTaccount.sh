@@ -28,8 +28,10 @@ PFT_NAME=${5}
 # find the account number
 account_num=$(grep "${PFT_NAME} " ${PFT_LIST} | cut -d" " -f2)
 
+echo "#################################"
 echo "Setting up ${PFT_NAME} with account number ${account_num}"
- 
+echo "#################################"
+
 RSC="rsc -a ${account_num}"
 
 # Get the shard for the account
@@ -82,3 +84,6 @@ cat_list_file=${DEPRECATED_CAT_LIST}
       rsc -a ${account_num} ss delete ${cat_href}
     fi
   done
+  
+  
+ echo "#### COMPLETED $PFT_NAME #######"
