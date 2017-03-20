@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ $# -ne 2 ]
 then
-    echo "Usage: $0 ACCOUNT_LIST_FILE CAT_LIST_FILE"
+    echo "Usage: $0 ACCOUNT_NUMBER CAT_LIST_FILE"
     exit 1
 fi
 
@@ -16,10 +16,8 @@ then
     exit 2
  fi
 
-account_list=${1}
+account_num=${1}
 cat_list_file=${2}
-while read pft_name account_num 
-do
 
   echo "#### Deleting CATs from account ${account_num}"
     
@@ -47,4 +45,3 @@ do
       rsc -a ${account_num} ss delete ${cat_href}
     fi
   done
-done < ${account_list}
