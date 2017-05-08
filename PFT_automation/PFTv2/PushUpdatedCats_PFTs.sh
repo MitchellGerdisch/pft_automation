@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [ $# -ne 1 ]
+then
+	echo "USAGE: $0 CAT_LIST_FILE"
+	exit 1
+fi
+
 for i in PFT_100 PFT_200 PFT_300 PFT_400 PFT_500 PFT_600 PFT_700 PFT_800 PFT_900 PFT_1000 
 do
     ./SetupPFTaccount.sh /Users/mitchellgerdisch/git/rs-premium_free_trial/pftv2_bootstrap.sh "cats publish" /Users/mitchellgerdisch/pft_account_management/PFT_all_accounts.txt /Users/mitchellgerdisch/Downloads/nofile.txt ${i}

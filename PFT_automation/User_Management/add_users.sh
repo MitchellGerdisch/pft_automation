@@ -36,7 +36,7 @@ then
 	exit 1
 fi
 
-echo "Confirm you wan to add the users to account ${ACCOUNT_NUMBER} with all permissions (y/n)"
+echo "Confirm you wan to add the users to account ${ACCOUNT_NUMBER} with observer and admin permissions (y/n)"
 read resp
 if [ ${resp} != "y" ]
 then
@@ -60,10 +60,14 @@ do
 		sed 's/  *//g' | 
 		cut -d":" -f2`
 
-	# Give the user all permissions - it's a PFT after all
-	for role in observer actor server_login admin publisher designer billing server_superuser library security_manager
+	# Give the user base permissions
+	for role in observer admin
 	do
 		# redirect to /dev/null so that duplicate attempt messages are not echoed to the user
 		rsc --pp -a ${ACCOUNT_NUMBER} cm15 create /api/permissions "permission[role_title]=${role}" "permission[user_href]=${user_href}" &> /dev/null
 	done
 done
+
+echo ""
+echo "############"
+echo "Use Governance to add rest of perms to the users or use a group to do so."
