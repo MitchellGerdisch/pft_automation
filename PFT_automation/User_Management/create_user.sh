@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ $# -ne 2 ]
+if [ $# -ne 7 ]
 then
 	echo "USAGE: $0 ACCOUNT_NUMBER firstName lastName companyName emailAddress phoneNumber password"
 	echo "Where ACCOUNT_NUMBER is the account number to which to add the users."
@@ -10,12 +10,12 @@ then
 fi
 
 ACCOUNT_NUMBER=${1}
-firstName=${2} 
-lastName=${3} 
-companyName=${4} 
-emailAddress=${5} 
-phoneNumber=${6} 
-password=${7}
+FirstName=${2} 
+LastName=${3} 
+CompanyName=${4} 
+EmailAddress=${5} 
+PhoneNumber=${6} 
+Password=${7}
 
 # Check to see that the rsc tool is installed.
 rsc --version > /dev/null
@@ -26,7 +26,7 @@ then
 	exit 1
 fi
 
-user_href=`rsc --pp -a ${ACCOUNT_NUMBER} --xh=Location cm15 create /api/users "user[first_name]=${firstname}" "user[last_name]=${lastname}" "user[company]=${companyname}" "user[email]=${emailAddress}" "user[phone]=${phoneNumber}" "user[password]=${password}"
+user_href=`rsc --pp -a ${ACCOUNT_NUMBER} --xh=Location cm15 create /api/users "user[first_name]=${FirstName}" "user[last_name]=${LastName}" "user[company]=${CompanyName}" "user[email]=${EmailAddress}" "user[phone]=${PhoneNumber}" "user[password]=${Password}"`
 
 printf "${user_href}"
 
